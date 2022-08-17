@@ -1,5 +1,7 @@
 package com.poe.crm.business.service;
 
+import com.poe.crm.api.dto.OrderDTO;
+import com.poe.crm.api.dto.OrderMapper;
 import com.poe.crm.business.Client;
 import com.poe.crm.business.Order;
 import com.poe.crm.dao.ClientRepository;
@@ -7,7 +9,6 @@ import com.poe.crm.dao.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,10 +29,15 @@ public class CrmService {
     }
 
     public void addClient(Client client) {
+        System.out.println(client);
         clientRepository.save(client);
     }
 
-    public void addOrder(Order order) {
+    public void addOrder(OrderDTO orderdto) { //boolean true faire  false pas faire
+        //verifier que le client existe dans la dtb
+        //verifier que le state client est actif
+        //value =    pas besoin optionnel
+        Order order = OrderMapper.convertToEntity(orderdto);
         orderRepository.save(order);
     }
 

@@ -1,12 +1,9 @@
 package com.poe.crm.api.dto;
 
-import com.poe.crm.business.Client;
+
 import com.poe.crm.business.ClientState;
 import com.poe.crm.business.Order;
-
-import javax.persistence.*;
 import java.util.List;
-
 public class ClientDTO {
 
 

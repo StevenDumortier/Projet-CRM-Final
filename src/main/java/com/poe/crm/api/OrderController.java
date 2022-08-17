@@ -1,6 +1,7 @@
 package com.poe.crm.api;
 
 
+import com.poe.crm.api.dto.OrderDTO;
 import com.poe.crm.business.Order;
 import com.poe.crm.business.service.CrmService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +25,8 @@ public class OrderController {
     }
 
     @PostMapping("orders")
-    public void createOrder(@RequestBody Order order){
-        crmService.addOrder(order);
+    public void createOrder(@RequestBody OrderDTO orderdto){
+        crmService.addOrder(orderdto);
     }
 
     @GetMapping("orders/{id}")

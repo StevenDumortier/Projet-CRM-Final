@@ -43,7 +43,7 @@ public class ClientController {
         if (o.isPresent()){
             Client client =o.get();
             ClientDTO clientDTO = ClientMapper.convertToDTO(client);
-            clientDTO.setTotalExpense(crmService.calculateExpense(client.getId()));
+            clientDTO.setTotalExpense(crmService.calculateExpense(client.getId())); //a mettre peut être dans le mapper ou dans le dto
             return ResponseEntity.status(HttpStatus.OK).body(clientDTO);
         }
         else {
